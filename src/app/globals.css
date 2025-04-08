@@ -68,12 +68,12 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar:oklch(0.145 0 0) ;
+  --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-accent: oklch(0.577 0.245 27.325);
+  --sidebar-accent-foreground:oklch(0.985 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 }
@@ -119,4 +119,48 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+	ul[data-sidebar="menu"] li > button[data-sidebar="menu-button"] {
+		outline: none;
+		border: none;
+	}
+	.bg-sidebar
+		div[data-sidebar="content"]
+		ul[data-sidebar="menu"]
+		li.group\/menu-item
+		> a.router-link-active,
+	.bg-sidebar
+		div[data-sidebar="content"]
+		ul[data-sidebar="menu"]
+		li.group\/menu-item
+		> button.router-link-active,
+	.bg-sidebar
+		div[data-sidebar="content"]
+		ul[data-sidebar="menu"]
+		li.group\/menu-item
+		> a:hover,
+	.bg-sidebar
+		div[data-sidebar="content"]
+		ul[data-sidebar="menu"]
+		li.group\/menu-item
+		> button:hover,
+	.bg-sidebar
+		div[data-sidebar="content"]
+		ul[data-sidebar="menu"]
+		li.group\/menu-item
+		> div
+		> ul
+		> li:hover
+		a,
+	.bg-sidebar
+		div[data-sidebar="content"]
+		ul[data-sidebar="menu"]
+		li.group\/menu-item
+		> div
+		> ul
+		> li:hover
+		a {
+		@apply text-sidebar-primary-foreground bg-sidebar-primary mr-16 w-full rounded-r-[8px] rounded-l-[0] border-none outline-none;
+	}
+
 }

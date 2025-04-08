@@ -18,6 +18,9 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import { IconType } from "react-icons/lib";
+import Link from "next/link";
+import { useIsActiveRoute } from "hooks";
+import { cn } from "lib/utils";
 
 export function NavMain({
   items,
@@ -33,6 +36,8 @@ export function NavMain({
     }[];
   }[];
 }) {
+
+  const isActiveRoute = useIsActiveRoute(); 
   return (
     <SidebarGroup className="pt-10">
       {/* <SidebarGroupLabel>Platform</SidebarGroupLabel> */}
@@ -48,7 +53,11 @@ export function NavMain({
               >
                 <SidebarMenuItem>
                   <CollapsibleTrigger asChild>
-                    <SidebarMenuButton tooltip={item.title}>
+                    <SidebarMenuButton
+                      tooltip={item.title}
+                      isActive={isActiveRoute(item.url)}
+                      className="p-3 h-12 text-base w-full"
+                    >
                       {item.icon && <item.icon />}
                       <span>{item.title}</span>
                       <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
@@ -58,10 +67,19 @@ export function NavMain({
                     <SidebarMenuSub>
                       {item.items?.map((subItem) => (
                         <SidebarMenuSubItem key={subItem.title}>
-                          <SidebarMenuSubButton asChild>
-                            <a href={subItem.url}>
+                          <SidebarMenuSubButton
+                         
+                            asChild
+                            className="p-3 h-12 text-base"
+                          >
+                            <Link
+                              href={subItem.url}
+                              className={cn({
+                                "router-link-active": useIsActiveRoute(),
+                              })}
+                            >
                               <span>{subItem.title}</span>
-                            </a>
+                            </Link>
                           </SidebarMenuSubButton>
                         </SidebarMenuSubItem>
                       ))}
@@ -73,9 +91,17 @@ export function NavMain({
           } else {
             return (
               <SidebarMenuItem key={item.title}>
-                <SidebarMenuButton tooltip={item.title}>
-                  {item.icon && <item.icon />}
-                  <span>{item.title}</span>
+                <SidebarMenuButton
+                  isActive={isActiveRoute(item.url)}
+                  tooltip={item.title}
+                  className="p-3 h-12 text-base w-full"
+                >
+                  <Link href={item.url} className="flex gap-2">
+                    <div className="grid items-center">
+                      {item.icon && <item.icon />}
+                    </div>
+                    <span>{item.title}</span>
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             );
