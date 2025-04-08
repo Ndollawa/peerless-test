@@ -44,12 +44,12 @@ export function DashhboardBreadcrumb() {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href={appLinks.navMain[0].url}> 
+          <BreadcrumbLink href={appLinks.navMain[0]?.url}> 
           {appLinks.navMain[0].title}
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
-        {appLinks.navMain.splice(0, 4).length >
+        {appLinks.navMain.slice(0, 4).length >
         ITEMS_TO_DISPLAY ? (
           <>
             <BreadcrumbItem>
@@ -64,7 +64,7 @@ export function DashhboardBreadcrumb() {
                   <DropdownMenuContent align="start">
                     {appLinks.navMain.slice(1, -2).map((item, index) => (
                       <DropdownMenuItem key={index}>
-                        <Link href={item.url ? item.url : "#"} className="flex gap-2">
+                        <Link href={item?.url ? item?.url : "#"} className="flex gap-2">
                          {item.icon && <item.icon />}
                           {item.title}
                         </Link>
@@ -88,7 +88,7 @@ export function DashhboardBreadcrumb() {
                       {appLinks.navMain.slice(1, -2).map((item, index) => (
                         <Link
                           key={index}
-                          href={item.url ? item.url : "#"}
+                          href={item?.url ? item?.url : "#"}
                           className="py-1 text-sm flex gap-2"
                         > {item.icon && <item.icon />}
                           {item.title}
@@ -109,13 +109,13 @@ export function DashhboardBreadcrumb() {
         ) : null}
         {appLinks.navMain.slice(-ITEMS_TO_DISPLAY + 1).map((item, index) => (
           <BreadcrumbItem key={index}>
-            {item.url ? (
+            {item?.url ? (
               <>
                 <BreadcrumbLink
                   asChild
                   className="max-w-20 truncate md:max-w-none"
                 >
-                  <Link href={item.url} className="flex gap-2"> {item.icon && <item.icon />}{item.title}</Link>
+                  <Link href={item?.url} className="flex gap-2"> {item.icon && <item.icon />}{item.title}</Link>
                 </BreadcrumbLink>
                 <BreadcrumbSeparator />
               </>

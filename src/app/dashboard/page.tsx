@@ -10,11 +10,6 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import { Separator } from "@/components/ui/separator";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
 import data from "./data.json";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, PlusCircle } from "lucide-react";
@@ -22,12 +17,6 @@ import { DashhboardBreadcrumb } from "@/components/dashboard/shared/breadcrumb";
 
 export default function Page() {
   return (
-    <SidebarProvider>
-      <AppSidebar />
-      <SidebarInset>
-        <SiteHeader />
-        <div className="flex flex-1 flex-col p-8">
-          <div className="@container/main flex flex-1 flex-col gap-2">
             <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
               {/* <SectionCards /> */}
               <div className="flex items-center justify-between gap-4">
@@ -100,9 +89,5 @@ export default function Page() {
                 <TabsContent value="requests"></TabsContent>
               </Tabs>
             </div>
-          </div>
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
   );
 }
