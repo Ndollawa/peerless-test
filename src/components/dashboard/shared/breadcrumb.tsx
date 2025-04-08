@@ -65,7 +65,7 @@ export function DashhboardBreadcrumb() {
                     {appLinks.navMain.slice(1, -2).map((item, index) => (
                       <DropdownMenuItem key={index}>
                         <Link href={item?.url ? item?.url : "#"} className="flex gap-2">
-                         {item.icon && <item.icon />}
+                         {item.icon && <item.icon className="size-4"/>}
                           {item.title}
                         </Link>
                       </DropdownMenuItem>
@@ -90,7 +90,7 @@ export function DashhboardBreadcrumb() {
                           key={index}
                           href={item?.url ? item?.url : "#"}
                           className="py-1 text-sm flex gap-2"
-                        > {item.icon && <item.icon />}
+                        > {item.icon && <item.icon className="size-4"/>}
                           {item.title}
                         </Link>
                       ))}
@@ -115,7 +115,7 @@ export function DashhboardBreadcrumb() {
                   asChild
                   className="max-w-20 truncate md:max-w-none"
                 >
-                  <Link href={item?.url} className="flex gap-2"> {item.icon && <item.icon />}{item.title}</Link>
+                  <Link href={item?.url} className="flex gap-2"> {item.icon && <item.icon className="size-4"/>}{item.title}</Link>
                 </BreadcrumbLink>
                 <BreadcrumbSeparator />
               </>
