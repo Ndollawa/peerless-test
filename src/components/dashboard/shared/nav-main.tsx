@@ -96,7 +96,7 @@ export function NavMain({
                   tooltip={item.title}
                   className="p-3 h-12 text-base w-full"
                 >
-                  <Link href={item.url} className="flex gap-2">
+                  <Link href={item.url} className="flex gap-2 w-full">
                     <div className="grid items-center">
                       {item.icon && <item.icon />}
                     </div>

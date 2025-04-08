@@ -49,7 +49,7 @@ export function DashhboardBreadcrumb() {
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
-        {appLinks.navMain.slice(0, 3).length >
+        {appLinks.navMain.slice(0, 2).toReversed().length >
         ITEMS_TO_DISPLAY ? (
           <>
             <BreadcrumbItem>
